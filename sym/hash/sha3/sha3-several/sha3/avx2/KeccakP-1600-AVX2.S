@@ -28,6 +28,11 @@
 .section .note.GNU-stack,""
 #endif
 
+#if defined(__MINGW32__) || defined(__MINGW64__)
+#define no_type
+#define no_size
+#endif
+
 .text
 
 # -----------------------------------------------------------------------------
@@ -39,7 +44,6 @@
 _KeccakP1600_Initialize:
 #else
 .globl  KeccakP1600_Initialize
-.hidden KeccakP1600_Initialize
 #ifndef no_type
 .type   KeccakP1600_Initialize,@function
 #endif
@@ -69,7 +73,6 @@ KeccakP1600_Initialize:
 _KeccakP1600_AddByte:
 #else
 .globl  KeccakP1600_AddByte
-.hidden KeccakP1600_AddByte
 #ifndef no_type
 .type   KeccakP1600_AddByte,@function
 #endif
@@ -99,7 +102,6 @@ KeccakP1600_AddByte:
 _KeccakP1600_AddBytes:
 #else
 .globl  KeccakP1600_AddBytes
-.hidden KeccakP1600_AddBytes
 #ifndef no_type
 .type   KeccakP1600_AddBytes,@function
 #endif
@@ -168,7 +170,6 @@ KeccakP1600_AddBytes_Exit:
 _KeccakP1600_OverwriteBytes:
 #else
 .globl  KeccakP1600_OverwriteBytes
-.hidden KeccakP1600_OverwriteBytes
 #ifndef no_type
 .type   KeccakP1600_OverwriteBytes,@function
 #endif
@@ -237,7 +238,6 @@ KeccakP1600_OverwriteBytes_Exit:
 _KeccakP1600_OverwriteWithZeroes:
 #else
 .globl  KeccakP1600_OverwriteWithZeroes
-.hidden KeccakP1600_OverwriteWithZeroes
 #ifndef no_type
 .type   KeccakP1600_OverwriteWithZeroes,@function
 #endif
@@ -282,7 +282,6 @@ KeccakP1600_OverwriteWithZeroes_Exit:
 _KeccakP1600_ExtractBytes:
 #else
 .globl  KeccakP1600_ExtractBytes
-.hidden KeccakP1600_ExtractBytes
 #ifndef no_type
 .type   KeccakP1600_ExtractBytes,@function
 #endif
@@ -354,7 +353,6 @@ KeccakP1600_ExtractBytes_Exit:
 _KeccakP1600_ExtractAndAddBytes:
 #else
 .globl  KeccakP1600_ExtractAndAddBytes
-.hidden KeccakP1600_ExtractAndAddBytes
 #ifndef no_type
 .type   KeccakP1600_ExtractAndAddBytes,@function
 #endif
@@ -581,7 +579,6 @@ __KeccakF1600:
 _KeccakP1600_Permute_24rounds:
 #else
 .globl  KeccakP1600_Permute_24rounds
-.hidden KeccakP1600_Permute_24rounds
 #ifndef no_type
 .type   KeccakP1600_Permute_24rounds,@function
 #endif
@@ -620,7 +617,6 @@ KeccakP1600_Permute_24rounds:
 _KeccakP1600_Permute_12rounds:
 #else
 .globl  KeccakP1600_Permute_12rounds
-.hidden KeccakP1600_Permute_12rounds
 #ifndef no_type
 .type   KeccakP1600_Permute_12rounds,@function
 #endif
@@ -659,7 +655,6 @@ KeccakP1600_Permute_12rounds:
 _KeccakP1600_Permute_Nrounds:
 #else
 .globl  KeccakP1600_Permute_Nrounds
-.hidden KeccakP1600_Permute_Nrounds
 #ifndef no_type
 .type   KeccakP1600_Permute_Nrounds,@function
 #endif
@@ -705,7 +700,6 @@ KeccakP1600_Permute_Nrounds:
 _KeccakF1600_FastLoop_Absorb:
 #else
 .globl  KeccakF1600_FastLoop_Absorb
-.hidden KeccakF1600_FastLoop_Absorb
 #ifndef no_type
 .type   KeccakF1600_FastLoop_Absorb,@function
 #endif
@@ -892,7 +886,6 @@ KeccakF1600_FastLoop_Absorb_LanesAddLoop:
 _KeccakP1600_12rounds_FastLoop_Absorb:
 #else
 .globl  KeccakP1600_12rounds_FastLoop_Absorb
-.hidden KeccakP1600_12rounds_FastLoop_Absorb
 #ifndef no_type
 .type   KeccakP1600_12rounds_FastLoop_Absorb,@function
 #endif
